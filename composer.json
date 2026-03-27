@@ -1,0 +1,81 @@
+{
+    "name": "plin-code/laravel-email-fixer",
+    "description": "Sanitize, normalize and auto-correct malformed email addresses before validation in Laravel",
+    "keywords": [
+        "Plin Code",
+        "laravel",
+        "email",
+        "sanitize",
+        "normalize",
+        "validation",
+        "typo",
+        "autocorrect",
+        "csv-import",
+        "laravel-email-fixer"
+    ],
+    "homepage": "https://github.com/plin-code/laravel-email-fixer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Daniele Barbaro",
+            "email": "barbaro.daniele@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "spatie/laravel-package-tools": "^1.16",
+        "illuminate/contracts": "^11.0||^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.14",
+        "nunomaduro/collision": "^8.8",
+        "larastan/larastan": "^3.0",
+        "orchestra/testbench": "^10.0.0||^9.0.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "PlinCode\\LaravelEmailFixer\\": "src/",
+            "PlinCode\\LaravelEmailFixer\\Database\\Factories\\": "database/factories/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PlinCode\\LaravelEmailFixer\\Tests\\": "tests/",
+            "Workbench\\App\\": "workbench/app/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@composer run prepare",
+        "prepare": "@php vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "PlinCode\\LaravelEmailFixer\\LaravelEmailFixerServiceProvider"
+            ],
+            "aliases": {
+                "LaravelEmailFixer": "PlinCode\\LaravelEmailFixer\\Facades\\LaravelEmailFixer"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
