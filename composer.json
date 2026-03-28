@@ -25,13 +25,15 @@
     "require": {
         "php": "^8.4",
         "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^11.0||^12.0"
+        "illuminate/contracts": "^12.0||^13.0",
+        "illuminate/support": "^12.0||^13.0",
+        "illuminate/validation": "^12.0||^13.0"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.8",
         "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^10.0.0||^9.0.0",
+        "orchestra/testbench": "^10.0.0||^11.0.0",
         "pestphp/pest": "^4.0",
         "pestphp/pest-plugin-arch": "^4.0",
         "pestphp/pest-plugin-laravel": "^4.0",
@@ -41,8 +43,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PlinCode\\LaravelEmailFixer\\": "src/",
-            "PlinCode\\LaravelEmailFixer\\Database\\Factories\\": "database/factories/"
+            "PlinCode\\LaravelEmailFixer\\": "src/"
         }
     },
     "autoload-dev": {
@@ -69,10 +70,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "PlinCode\\LaravelEmailFixer\\LaravelEmailFixerServiceProvider"
+                "PlinCode\\LaravelEmailFixer\\EmailFixerServiceProvider"
             ],
             "aliases": {
-                "LaravelEmailFixer": "PlinCode\\LaravelEmailFixer\\Facades\\LaravelEmailFixer"
+                "EmailFixer": "PlinCode\\LaravelEmailFixer\\Facades\\EmailFixer"
             }
         }
     },
