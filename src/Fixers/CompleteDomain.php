@@ -4,7 +4,7 @@ namespace PlinCode\LaravelEmailFixer\Fixers;
 
 use PlinCode\LaravelEmailFixer\Contracts\DomainAwareFixer;
 
-class CompleteDomain implements DomainAwareFixer
+final class CompleteDomain implements DomainAwareFixer
 {
     /** @param array<string, string> $domainMap */
     public function __construct(private array $domainMap) {}
@@ -20,7 +20,7 @@ class CompleteDomain implements DomainAwareFixer
         $domain = substr($email, $atPos + 1);
 
         if (isset($this->domainMap[$domain])) {
-            return $local . '@' . $this->domainMap[$domain];
+            return $local.'@'.$this->domainMap[$domain];
         }
 
         return $email;
@@ -33,6 +33,6 @@ class CompleteDomain implements DomainAwareFixer
 
     public function withDomainMap(array $domainMap): static
     {
-        return new static($domainMap);
+        return new self($domainMap);
     }
 }

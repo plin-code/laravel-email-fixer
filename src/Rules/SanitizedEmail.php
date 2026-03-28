@@ -30,7 +30,7 @@ class SanitizedEmail implements ValidationRule
 
         $fixed = $fixer->fix($value);
 
-        request()?->merge([$attribute => $fixed]);
+        request()->merge([$attribute => $fixed]);
 
         $emailRule = $this->strict ? 'email:rfc' : 'email';
         $validator = validator([$attribute => $fixed], [$attribute => $emailRule]);

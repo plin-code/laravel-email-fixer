@@ -13,7 +13,7 @@ class ItalianKeyboard implements FixerInterface
             return $email;
         }
 
-        return mb_substr($email, 0, $pos) . '@' . mb_substr($email, $pos + 1);
+        return mb_substr($email, 0, $pos).'@'.mb_substr($email, $pos + 1);
     }
 
     public function name(): string

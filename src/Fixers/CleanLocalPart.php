@@ -15,7 +15,7 @@ class CleanLocalPart implements FixerInterface
 
         $local = rtrim(substr($email, 0, $atPos), '.');
 
-        return $local . substr($email, $atPos);
+        return $local.substr($email, $atPos);
     }
 
     public function name(): string

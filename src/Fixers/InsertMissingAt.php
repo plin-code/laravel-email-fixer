@@ -4,7 +4,7 @@ namespace PlinCode\LaravelEmailFixer\Fixers;
 
 use PlinCode\LaravelEmailFixer\Contracts\DomainAwareFixer;
 
-class InsertMissingAt implements DomainAwareFixer
+final class InsertMissingAt implements DomainAwareFixer
 {
     /** @param array<string, string> $domainMap */
     public function __construct(private array $domainMap) {}
@@ -22,8 +22,8 @@ class InsertMissingAt implements DomainAwareFixer
         foreach ($fullDomains as $domain) {
             if (str_ends_with($email, $domain)) {
                 $local = substr($email, 0, -strlen($domain));
-                if ($local !== '' && $local !== false) {
-                    return $local . '@' . $domain;
+                if ($local !== '') {
+                    return $local.'@'.$domain;
                 }
             }
         }
@@ -35,8 +35,8 @@ class InsertMissingAt implements DomainAwareFixer
         foreach ($keys as $key) {
             if (str_ends_with($email, $key)) {
                 $local = substr($email, 0, -strlen($key));
-                if ($local !== '' && $local !== false) {
-                    return $local . '@' . $this->domainMap[$key];
+                if ($local !== '') {
+                    return $local.'@'.$this->domainMap[$key];
                 }
             }
         }
@@ -51,6 +51,6 @@ class InsertMissingAt implements DomainAwareFixer
 
     public function withDomainMap(array $domainMap): static
     {
-        return new static($domainMap);
+        return new self($domainMap);
     }
 }

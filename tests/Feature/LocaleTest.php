@@ -1,8 +1,8 @@
 <?php
 
+use PlinCode\LaravelEmailFixer\Contracts\LocalePreset;
 use PlinCode\LaravelEmailFixer\EmailFixer;
 use PlinCode\LaravelEmailFixer\Locale\ItalianPreset;
-use PlinCode\LaravelEmailFixer\Contracts\LocalePreset;
 
 it('ItalianPreset implements LocalePreset', function () {
     expect(new ItalianPreset)->toBeInstanceOf(LocalePreset::class);

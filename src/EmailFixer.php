@@ -19,7 +19,7 @@ use PlinCode\LaravelEmailFixer\Fixers\TrimWhitespace;
 use PlinCode\LaravelEmailFixer\Locale\ItalianPreset;
 use PlinCode\LaravelEmailFixer\Support\FixReport;
 
-class EmailFixer
+final class EmailFixer
 {
     /** @var array<string, class-string<LocalePreset>> */
     private static array $presets = [
@@ -27,10 +27,10 @@ class EmailFixer
     ];
 
     /**
-     * @param FixerInterface[] $fixers
-     * @param array<string, string> $domainMap
-     * @param array<string, mixed> $garbageConfig
-     * @param (callable(string): bool)|null $validator
+     * @param  FixerInterface[]  $fixers
+     * @param  array<string, string>  $domainMap
+     * @param  array<string, mixed>  $garbageConfig
+     * @param  (callable(string): bool)|null  $validator
      */
     public function __construct(
         private array $fixers,
@@ -112,7 +112,7 @@ class EmailFixer
         return array_map(fn (string $email) => $this->diagnose($email), $emails);
     }
 
-    public function locale(string $locale): static
+    public function locale(string $locale): self
     {
         $presetClass = self::$presets[$locale] ?? null;
 
@@ -144,20 +144,20 @@ class EmailFixer
 
         array_splice($fixers, $insertIndex, 0, $preset->fixers());
 
-        return new static($fixers, $mergedMap, $this->garbageConfig, $this->validator);
+        return new self($fixers, $mergedMap, $this->garbageConfig, $this->validator);
     }
 
     /**
-     * @param array<string, string> $domainMap
-     * @param array<string, mixed> $garbageConfig
-     * @param (callable(string): bool)|null $validator
+     * @param  array<string, string>  $domainMap
+     * @param  array<string, mixed>  $garbageConfig
+     * @param  (callable(string): bool)|null  $validator
      */
     public static function defaults(
         array $domainMap = [],
         array $garbageConfig = [],
         ?callable $validator = null,
-    ): static {
-        return new static(
+    ): self {
+        return new self(
             fixers: self::defaultFixers($domainMap),
             domainMap: $domainMap,
             garbageConfig: $garbageConfig,

@@ -5,7 +5,7 @@ namespace PlinCode\LaravelEmailFixer\Support;
 class FixReport
 {
     /**
-     * @param string[] $appliedFixers
+     * @param  string[]  $appliedFixers
      */
     public function __construct(
         public readonly string $original,

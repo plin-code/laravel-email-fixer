@@ -128,3 +128,34 @@ it('uses custom validator for fixOrNull', function () {
     expect($fixer->fixOrNull('user@gmail'))->toBe('user@gmail.com');
     expect($fixer->fixOrNull('other@other.com'))->toBeNull();
 });
+
+it('passes all fixture cases', function () {
+    $fixtures = json_decode(
+        file_get_contents(__DIR__.'/../fixtures/emails.json'),
+        true,
+    );
+
+    $defaultDomainMap = config('email-fixer.domains');
+
+    foreach ($fixtures as $i => $case) {
+        $fixer = EmailFixer::defaults(domainMap: $defaultDomainMap);
+
+        if ($case['locale'] !== null) {
+            $fixer = $fixer->locale($case['locale']);
+        }
+
+        $result = $fixer->fix($case['input']);
+        expect($result)->toBe(
+            $case['expected'],
+            "Fixture #{$i}: '{$case['input']}' → expected '{$case['expected']}', got '{$result}'",
+        );
+
+        if (isset($case['garbage'])) {
+            $defaultFixer = EmailFixer::defaults(domainMap: $defaultDomainMap);
+            expect($defaultFixer->isGarbage($case['input']))->toBe(
+                $case['garbage'],
+                "Fixture #{$i}: garbage check for '{$case['input']}'",
+            );
+        }
+    }
+});
