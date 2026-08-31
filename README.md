@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/plin-code/laravel-email-fixer/main/art/banner.png" alt="Laravel Email Fixer">
+</p>
+
 # Laravel Email Fixer
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/plin-code/laravel-email-fixer.svg?style=flat-square)](https://packagist.org/packages/plin-code/laravel-email-fixer)
