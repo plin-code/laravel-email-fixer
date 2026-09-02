@@ -4,10 +4,13 @@
 
 # Laravel Email Fixer
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/plin-code/laravel-email-fixer.svg?style=flat-square)](https://packagist.org/packages/plin-code/laravel-email-fixer)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/plin-code/laravel-email-fixer/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/plin-code/laravel-email-fixer/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/plin-code/laravel-email-fixer/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/plin-code/laravel-email-fixer/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/plin-code/laravel-email-fixer.svg?style=flat-square)](https://packagist.org/packages/plin-code/laravel-email-fixer)
+<p align="center">
+    <a href="https://packagist.org/packages/plin-code/laravel-email-fixer"><img src="https://img.shields.io/packagist/v/plin-code/laravel-email-fixer.svg?style=flat-square" alt="Packagist"></a>
+    <a href="https://packagist.org/packages/plin-code/laravel-email-fixer"><img src="https://img.shields.io/packagist/php-v/plin-code/laravel-email-fixer.svg?style=flat-square" alt="PHP from Packagist"></a>
+    <a href="https://packagist.org/packages/plin-code/laravel-email-fixer"><img src="https://badge.laravel.cloud/badge/plin-code/laravel-email-fixer?style=flat" alt="Laravel versions"></a>
+    <a href="https://github.com/plin-code/laravel-email-fixer/actions"><img alt="GitHub Workflow Status (main)" src="https://img.shields.io/github/actions/workflow/status/plin-code/laravel-email-fixer/run-tests.yml?branch=main&label=Tests&style=flat-square"></a>
+    <a href="https://packagist.org/packages/plin-code/laravel-email-fixer"><img src="https://img.shields.io/packagist/dt/plin-code/laravel-email-fixer.svg?style=flat-square" alt="Total Downloads"></a>
+</p>
 
 Sanitize, normalize and auto-correct malformed email addresses in Laravel. Handles common typos from web forms, CSV imports, and mobile keyboards, including locale-specific issues like the Italian `ò` → `@` keyboard quirk.
 
