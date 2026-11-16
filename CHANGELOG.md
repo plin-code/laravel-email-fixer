@@ -2,7 +2,11 @@
 
 All notable changes to `laravel-email-fixer` will be documented in this file.
 
-##  First stable release of Laravel Email Fixer - 2026-03-28
+## v1.0.1 - 2026-11-16
+
+Allow guzzlehttp/promises v3, so the package installs on Laravel 13 with Guzzle 8 (#8).
+
+## First stable release of Laravel Email Fixer - 2026-03-28
 
 A composable pipeline of fixers that automatically repairs malformed email addresses from forms, CSV imports, and mobile
 keyboards.
